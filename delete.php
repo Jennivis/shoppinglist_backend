@@ -7,7 +7,7 @@ $id = filter_var($input->id,FILTER_SANITIZE_SPECIAL_CHARS);
 
 try {
     $db = openDB();
-    $query = $dp->prepare('delete from item where id=(:id)');
+    $query = $db->prepare('delete from item where id=(:id)');
     $query->bindValue(':id',$id,PDO::PARAM_STR);
     $query->execute();
 
